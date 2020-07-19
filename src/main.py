@@ -467,7 +467,7 @@ def usage():
     parser.add_option('-b', '--batch-size', action='store', dest='batch_size', type='int', default=20, help='The data item number of each batch per thread, default is 20.')
     parser.add_option('-c', '--cache-size', action='store', dest='cache_size', type='int', default=1024, help='Process cache size, default is 1024.')
     parser.add_option('-T', '--cache-ttl', action='store', dest='cache_ttl', type='int', default=600, help='Process cache time to live(TTL), default is 600 seconds.')
-    parser.add_option('-m', '--mode', action='store', dest='mode', type='int', default=1, help='Work mode: 1-master, 0-slave, default is 1.')
+    parser.add_option('-m', '--mode', action='store', dest='mode', type='int', default=1, help='Work mode: 1-main, 0-subordinate, default is 1.')
     parser.add_option('-d', '--debug', action='store', dest='debug', type='int', default=2, help='Print debug info, 1-error, 2-warning, 3-info, 4-debug, default is 2.')
 
     options, args = parser.parse_args()
@@ -491,7 +491,7 @@ def usage():
         parser.error('Please specify valid time, format is [number]，like: 15, max is 10080(7 days).')
 
     if options.mode not in [0, 1]:
-        parser.error('Please specify valid mode: 1-master, 0-slave.')
+        parser.error('Please specify valid mode: 1-main, 0-subordinate.')
 
     if options.debug < 0: options.debug = 2
 
